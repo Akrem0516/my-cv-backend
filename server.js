@@ -3,8 +3,6 @@ const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
 
-console.log("EMAIL:", process.env.EMAIL);
-console.log("EMAIL_PASSWORD:", process.env.EMAIL_PASSWORD ? "Loaded" : "Not Loaded");
 
 
 const app = express();
