@@ -22,7 +22,9 @@ app.post("/send-email", async (req, res) => {
 
     try {
         let transporter = nodemailer.createTransport({
-            service: "gmail",
+            service: "smtp.gmail.com",
+            port: 465,
+            secure: true,
             auth: {
                 user: process.env.EMAIL, // Your email
                 pass: process.env.EMAIL_PASSWORD, // Your email password
