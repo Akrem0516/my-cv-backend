@@ -30,9 +30,9 @@ app.post("/send-email", async (req, res) => {
         });
 
         await transporter.sendMail({
-            from: email,
+            from: process.env.EMAIL,
             text: `Name : ${firstName} ${lastName}`,
-            to: process.env.EMAIL, // Your email to receive messages
+            to: "akremmezouri@gmail.com", // Your email to receive messages
             subject: subject,
             text: message,
             html: `<p><strong>Name:</strong> ${firstName} ${lastName}</p>
