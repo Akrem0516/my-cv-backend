@@ -14,17 +14,15 @@ app.listen(PORT , () => {
     console.log(`app is running on PORT ${PORT}`);
 });
 
-app.use(cors());
-app.use(express.json());
+app.use(cors()); // ✅ Allow requests from frontend
+app.use(express.json()); // ✅ Parse JSON body
 
 app.post("/send-email", async (req, res) => {
     const {firstName, lastName, email, subject, message } = req.body;
 
     try {
         let transporter = nodemailer.createTransport({
-            service: "smtp.gmail.com",
-            port: 465,
-            secure: true,
+            service: "gmail",
             auth: {
                 user: process.env.EMAIL, // Your email
                 pass: process.env.EMAIL_PASSWORD, // Your email password
