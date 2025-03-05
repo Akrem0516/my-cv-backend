@@ -2,7 +2,6 @@ require("dotenv").config();
 const express = require("express");
 const cors = require("cors");
 const nodemailer = require("nodemailer");
-
 const app = express();
 const PORT = process.env.PORT || 8000;
 
@@ -12,6 +11,15 @@ app.listen(PORT, () => {
 
 app.use(cors()); // Allow requests from frontend
 app.use(express.json()); // Parse JSON body
+
+
+app.get('/', (req, res) => {
+    res.send('<h1>I am the server</h1>'); // Static content rendered
+  });
+  
+
+
+
 
 app.post("/send-email", async (req, res) => {
     const { firstName, lastName, email, subject, message } = req.body;
